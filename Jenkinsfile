@@ -13,6 +13,15 @@ pipeline {
                 }
             }
         }
+        stage('Push docker image') {
+            steps {
+                script {
+                    docker.withRegistry( '', azureacr ) {
+                        dockerImage.push()
+                    }
+                }
+            }
+        }
     }
     post { 
         always { 
