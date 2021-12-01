@@ -19,7 +19,9 @@ pipeline {
         stage('Python - run pytest') {
             steps {
                     sh '''
-                        pip -r requirements.txt
+                        pip install -r requirements.txt
+                        pip install pytest-cov
+                        pytest --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml
                     '''
             }
         }
