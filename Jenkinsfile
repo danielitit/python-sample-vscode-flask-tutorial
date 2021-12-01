@@ -16,15 +16,6 @@ pipeline {
                 }
             }
         }
-        stage('Python - run pytest') {
-            steps {
-                    sh '''
-                        pip install -r requirements.txt
-                        pip install pytest-cov
-                        python -m pytest --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml
-                    '''
-            }
-        }
         stage('Build docker image') {
             steps {
                 script {
@@ -40,6 +31,9 @@ pipeline {
                     }
                 }
             }
+        }
+        stage('Production approval') {
+            input "Deploy to PROD?"
         }
     }
     post { 
