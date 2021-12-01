@@ -20,6 +20,7 @@ pipeline {
             steps {
                     sh '''
                         pip -r requirements.txt
+                    '''
                 }
             }
         }
