@@ -33,13 +33,14 @@ pipeline {
             }
         }
         stage('Production approval') {
-            input {
-                message "Deploy to PROD?"
-                ok "Yes, we should."
-                submitter "daniel,bob"
-                parameters {
-                    string(name: 'PERSON', defaultValue: 'Daniel', description: 'Information')
-                }
+            steps {
+                input {
+                    message "Deploy to PROD?"
+                    ok "Yes, we should."
+                    submitter "daniel,bob"
+                    parameters {
+                        string(name: 'PERSON', defaultValue: 'Daniel', description: 'Information')
+                    }
             }
         }
     }
