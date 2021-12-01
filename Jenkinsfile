@@ -16,7 +16,7 @@ pipeline {
         stage('Push docker image') {
             steps {
                 script {
-                    docker.withRegistry( 'interacrdanny.azurecr.io', registryCredential ) {
+                    docker.withRegistry( 'https://interacrdanny.azurecr.io', registryCredential ) {
                         dockerImage.push()
                     }
                 }
