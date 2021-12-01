@@ -33,7 +33,9 @@ pipeline {
             }
         }
         stage('Production approval') {
-            input "Deploy to PROD?"
+            input {
+                message "Deploy to PROD?"
+            }
         }
     }
     post { 
