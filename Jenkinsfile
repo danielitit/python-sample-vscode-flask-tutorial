@@ -21,7 +21,7 @@ pipeline {
                     sh '''
                         pip install -r requirements.txt
                         pip install pytest-cov
-                        pytest --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml
+                        python -m pytest --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml
                     '''
             }
         }
