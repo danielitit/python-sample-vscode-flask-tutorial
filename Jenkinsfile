@@ -32,15 +32,15 @@ pipeline {
                 }
             }
         }
-        stage('Production approval') {
+        stage('Deploy to PROD') {
+            options {
+                timeout(time: 30, unit: 'SECONDS') 
+            }
+            input {
+                message "Should we continue?"
+            }
             steps {
-                input {
-                    message "Deploy to PROD?"
-                    ok "Yes, we should."
-                    submitter "daniel,bob"
-                    parameters {
-                        string(name: 'PERSON', defaultValue: 'Daniel', description: 'Information')
-                    }
+                echo "Helm deploy"
             }
         }
     }
