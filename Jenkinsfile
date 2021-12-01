@@ -3,14 +3,14 @@ pipeline {
         registry = "interacrdanny.azurecr.io/interview-python"
         registryCredential = 'azureacr'
         dockerImage = ''
-        scannerHome = tool 'SonarScanner'
+        scannerHome = tool name: 'sonar_scanner'
     }
     agent any
     stages {
         stage('Sonarcloud - scan code') {
             steps {
                 script {
-                    withSonarQubeEnv('sonarqube') {
+                    withSonarQubeEnv('SonarQube') {
                         sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=interview -Dsonar.sources=. -Dsonar.host.url=http://20.93.31.185:9000 -Dsonar.login=1a484c8c344291efcb5168fae2d4b70ed2847cd5"
                     }
                 }
