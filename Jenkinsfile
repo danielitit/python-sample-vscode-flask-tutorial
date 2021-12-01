@@ -1,9 +1,16 @@
 pipeline {
+    environment {
+        registry = "interacrdanny.azurecr.io/interview-python"
+        registryCredential = 'azureacr'
+        dockerImage = ''
+    }
     agent any
     stages {
-        stage('Example') {
+        stage('Build docker image') {
             steps {
-                echo 'Hello World'
+                script {
+                    docker.Image = docker.build registry + ":$BUILD_NUMBER"
+                }
             }
         }
     }
