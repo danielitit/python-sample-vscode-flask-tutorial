@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     withSonarQubeEnv('sonarqube') {
-                        sh "${tool("sonarscan")}/bin/sonar-scanner -Dsonar.projectKey=interview -Dsonar.sources=. -Dsonar.host.url=http://20.93.31.185:9000 -Dsonar.login=1a484c8c344291efcb5168fae2d4b70ed2847cd5"
+                        sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=interview -Dsonar.sources=. -Dsonar.host.url=http://20.93.31.185:9000 -Dsonar.login=1a484c8c344291efcb5168fae2d4b70ed2847cd5"
                     }
                 }
             }
