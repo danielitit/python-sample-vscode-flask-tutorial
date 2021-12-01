@@ -16,7 +16,7 @@ pipeline {
         stage('Push docker image') {
             steps {
                 script {
-                    docker.withRegistry( '', azureacr ) {
+                    docker.withRegistry( '', registryCredential ) {
                         dockerImage.push()
                     }
                 }
