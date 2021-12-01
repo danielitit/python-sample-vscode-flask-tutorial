@@ -3,7 +3,7 @@ pipeline {
         registry = "interacrdanny.azurecr.io/interview-python"
         registryCredential = 'azureacr'
         dockerImage = ''
-        scannerHome = tool name: 'sonar_scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+        scannerHome = tool name: 'SonarQube Scanner for Jenkins', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
     }
     agent any
     stages {
