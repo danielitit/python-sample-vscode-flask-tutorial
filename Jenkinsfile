@@ -16,6 +16,13 @@ pipeline {
                 }
             }
         }
+        stage('Python - run pytest') {
+            steps {
+                    sh '''
+                        pip -r requirements.txt
+                }
+            }
+        }
         stage('Build docker image') {
             steps {
                 script {
